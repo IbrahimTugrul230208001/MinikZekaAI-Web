@@ -1,7 +1,24 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.SemanticKernel;
+
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+var key = configuration["SMTP:key"];
+string apiKey = configuration["Gemini:key"];
+// Removes all whitespace characters (spaces, tabs, newlines, etc.)
+string cleanedKey = new string(apiKey.Where(c => !char.IsWhiteSpace(c)).ToArray());
+var skBuilder = Kernel.CreateBuilder();
+#pragma warning disable SKEXP0070
+builder.Services
+    .AddKernel()
+    .AddGoogleAIGeminiChatCompletion(
+        modelId: "gemini-2.0-flash",
+        apiKey: apiKey
+    );
+
 
 var app = builder.Build();
 
