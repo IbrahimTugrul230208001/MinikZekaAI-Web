@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36310.24
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinikZekaAI-Web", "MinikZekaAI-Web\MinikZekaAI-Web.csproj", "{422C1BC2-144E-4A5B-BF58-7FE3F40C74C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinikZekaAI-Web.UX", "MinikZekaAI-Web\MinikZekaAI-Web.UX.csproj", "{422C1BC2-144E-4A5B-BF58-7FE3F40C74C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinikZekaAI-Web.DataAccess", "MinikZekaAI-Web.DataAccess\MinikZekaAI-Web.DataAccess.csproj", "{46581E3B-4630-48AC-A3C3-AD203577C831}"
 EndProject

@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/IbrahimTugrul230208001/MinikZekaAI-Web#readme",
   "dependencies": {
+    "@microsoft/signalr": "^8.0.7",
     "@tailwindcss/cli": "^4.1.11",
     "install": "^0.13.0",
     "npm": "^11.5.1",
