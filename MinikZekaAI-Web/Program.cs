@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.SemanticKernel;
+using MinikZekaAI_Web.Hubs;
+using MinikZekaAI_Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -19,7 +21,11 @@ builder.Services
         apiKey: apiKey
     );
 
+builder.Services.AddSignalR();
+builder.Services.AddControllersWithViews();
 
+// Register UserService as a singleton
+builder.Services.AddSingleton<IAIService, AIService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -37,8 +43,19 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapGet("/", context =>
+{
+    context.Response.Redirect("/Giris/Anket");
+    return Task.CompletedTask;
+});
 
+
+
+app.MapHub<AIHub>("ai-hub");
 app.Run();

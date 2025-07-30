@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using MinikZekaAI_Web.Models;
 
 namespace MinikZekaAI_Web.Controllers
 {
