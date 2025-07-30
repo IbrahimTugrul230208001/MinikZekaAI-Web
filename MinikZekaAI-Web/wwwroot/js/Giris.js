@@ -7,18 +7,26 @@
 let current = 0;
 
 function nextQuestion() {
+    // 1. Before incrementing, determine which answer to send
+    if (current === 0) {
+        // Sending answer to first question (nickname, from input)
+        sendAnswer(questions[current], document.getElementById("answer").value);
+    } else if (current === 1) {
+        // Sending answer to grade question (from select)
+        sendAnswer(questions[current], document.getElementById("grade-select").value);
+    } // Add more as needed for more questions
+
     current++;
 
-    // 1. If on "Kaçıncı Sınıfsın?" (current == 1), show select, hide input
     if (current === 1) {
+        // Show grade select
         document.getElementById("survey-label").textContent = questions[current];
         document.getElementById("answer").classList.add("hidden");
         document.getElementById("grade-select").classList.remove("hidden");
     }
-    // 2. If beyond last question, show thank you
     else if (current >= questions.length) {
         document.getElementById("survey-label").textContent = "Teşekkürler!";
-        document.getElementById("survey-label").classList.add("justify-center");
+        document.getElementById("survey-label").classList.add("text-center");
         document.getElementById("answer").classList.add("hidden");
         document.getElementById("grade-select").classList.add("hidden");
         document.getElementById("next").style.display = "none";
@@ -28,8 +36,8 @@ function nextQuestion() {
             origin: { y: 0.6 }
         });
     }
-    // 3. For other questions, show input, hide select
     else {
+        // For additional questions (if any)
         document.getElementById("survey-label").textContent = questions[current];
         document.getElementById("answer").placeholder = questions[current];
         document.getElementById("answer").value = "";
@@ -46,3 +54,23 @@ document.getElementById("answer").addEventListener("keydown", function (e) {
         nextQuestion();
     }
 });
+function sendAnswer(question, answer) {
+    fetch('/YourController/ReceiveAnswer', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            question: question,
+            answer: answer
+        })
+    })
+        .then(response => {
+            if (!response.ok) {
+                // Optional: handle error
+            }
+        })
+        .catch(error => {
+            console.log('Error sending answer:', error);
+        });
+}
