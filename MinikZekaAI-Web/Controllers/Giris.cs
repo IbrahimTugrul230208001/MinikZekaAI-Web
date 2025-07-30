@@ -3,16 +3,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MinikZekaAI_Web.Controllers
 {
-    public class HomeController : Controller
+    public class Giris : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<Giris> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public Giris(ILogger<Giris> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Anket()
         {
             return View();
         }
