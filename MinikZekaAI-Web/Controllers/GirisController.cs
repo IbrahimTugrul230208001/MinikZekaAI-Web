@@ -3,11 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MinikZekaAI_Web.Controllers
 {
-    public class Giris : Controller
+    public class GirisController : Controller
     {
-        private readonly ILogger<Giris> _logger;
+        private readonly ILogger<GirisController> _logger;
 
-        public Giris(ILogger<Giris> logger)
+        public GirisController(ILogger<GirisController> logger)
         {
             _logger = logger;
         }

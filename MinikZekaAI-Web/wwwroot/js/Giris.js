@@ -26,7 +26,7 @@ function nextQuestion() {
     }
     else if (current >= questions.length) {
         document.getElementById("survey-label").textContent = "Teşekkürler!";
-        document.getElementById("survey-label").classList.add("text-center");
+        document.getElementById("survey-label").classList.add("justify-center");
         document.getElementById("answer").classList.add("hidden");
         document.getElementById("grade-select").classList.add("hidden");
         document.getElementById("next").style.display = "none";
@@ -35,6 +35,9 @@ function nextQuestion() {
             spread: 70,
             origin: { y: 0.6 }
         });
+        setTimeout(function () {
+            window.location.href = "/Platform/AnaSayfa";
+        }, 1500); // Redirect after 1.5 seconds
     }
     else {
         // For additional questions (if any)

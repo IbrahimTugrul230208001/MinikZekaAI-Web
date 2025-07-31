@@ -1066,6 +1066,13 @@
       }
     }
   }
+  .hover\:bg-yellow-400 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-yellow-400);
+      }
+    }
+  }
   .hover\:bg-yellow-500 {
     &:hover {
       @media (hover: hover) {
@@ -1102,6 +1109,11 @@
     &:focus {
       --tw-outline-style: none;
       outline-style: none;
+    }
+  }
+  .active\:bg-yellow-500 {
+    &:active {
+      background-color: var(--color-yellow-500);
     }
   }
   .active\:bg-yellow-600 {
