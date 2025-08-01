@@ -6,7 +6,7 @@ using MinikZekaAI_Web.Hubs;
 using System.Text;
 namespace MinikZekaAI_Web.Services;
 
-public class AIService(IHubContext<AIHub> hubContext, IChatCompletionService chatCompletionService, Kernel kernel) : IAIService
+public class AIService(IHubContext<AIHub> hubContext, IChatCompletionService chatCompletionService, Kernel kernel) : IAIServices
 {
     public async Task GetMessageStreamAsync(string prompt, string connectionId, CancellationToken? cancellationToken = default!)
     {

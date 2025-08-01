@@ -25,7 +25,7 @@ builder.Services.AddSignalR();
 builder.Services.AddControllersWithViews();
 
 // Register UserService as a singleton
-builder.Services.AddSingleton<IAIService, AIService>();
+builder.Services.AddSingleton<IAIServices, AIService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

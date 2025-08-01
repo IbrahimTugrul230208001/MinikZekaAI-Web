@@ -1,6 +1,6 @@
 ﻿namespace MinikZekaAI_Web.Services
 {
-    public interface IAIService
+    public interface IAIServices
     {
         Task GetMessageStreamAsync(string prompt, string connectionId, CancellationToken? cancellationToken = default!);
 
