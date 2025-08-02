@@ -1,0 +1,28 @@
+﻿#chatBox {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s linear;
+    transform: translateY(100%);
+    opacity: 0;
+    position: fixed;
+    bottom: 0;
+    right: 24px; /* or as needed */
+    /* width, height, background, etc */
+    z-index: 1000;
+}
+
+.translate-y-full {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+.translate-y-0 {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.opacity-0 {
+    opacity: 0;
+}
+
+.opacity-100 {
+    opacity: 1;
+}

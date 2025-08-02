@@ -18,21 +18,6 @@ closeBtn.addEventListener('click', () => {
     chatBox.classList.add('scale-0', 'opacity-0');
 });
 
-// Basic chat send (append message, simulate AI reply)
-chatForm.addEventListener('submit', e => {
-    e.preventDefault();
-    const text = chatInput.value.trim();
-    if (!text) return;
-    chatContent.innerHTML += `<div class="my-2 flex justify-end"><div class="bg-yellow-200 text-gray-900 px-3 py-2 rounded-lg max-w-xs">${text}</div></div>`;
-    chatInput.value = '';
-    chatContent.scrollTop = chatContent.scrollHeight;
-    // Simulate AI response
-    setTimeout(() => {
-        chatContent.innerHTML += `<div class="my-2 flex justify-start"><div class="bg-gray-200 text-gray-800 px-3 py-2 rounded-lg max-w-xs">[AI]: Cevabınız burada!</div></div>`;
-        chatContent.scrollTop = chatContent.scrollHeight;
-    }, 600);
-});
-
 // Close chat on outside click
 document.addEventListener('click', e => {
     if (!chatBox.contains(e.target) && !openBtn.contains(e.target)) {
@@ -48,3 +33,15 @@ document.addEventListener('keydown', e => {
         chatBox.classList.add('scale-0', 'opacity-0');
     }
 });
+
+
+function removeImageIfChatHasContent() {
+    chatContent = document.getElementById("chatContent");
+    const img = chatContent.querySelector("img");
+    // If chatContent has more than 1 child, remove the image
+    if (chatContent.children.length > 1 && img) {
+        img.remove();
+    }
+}
+
+// Call this after adding any new message

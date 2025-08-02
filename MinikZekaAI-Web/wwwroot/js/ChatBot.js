@@ -1,7 +1,11 @@
-﻿async function startHubConnection() {
+﻿var hubConnection = new signalR.HubConnectionBuilder()
+    .withUrl("https://localhost:7213/ai-hub")
+    .build();
+
+async function startHubConnection() {
     try {
         await hubConnection.start();
-        document.getElementById("connectionId").innerText = hubConnection.connectionId;
+        document.getElementById("connectionId").innerText += hubConnection.connectionId;
         console.log("SignalR Connected. Connection ID:", hubConnection.connectionId);
     } catch (err) {
         console.error("SignalR Connection Error:", err.toString());
@@ -14,123 +18,121 @@ hubConnection.on("ReceiveMessage", (message) => {
     console.log("Received AI Response:", message);
 
     const chatBox = document.getElementById("chatContent");
-    // Parse and format the message (if you're using a markdown library)
+    // (Optional) Use marked.parse(message) if you want markdown parsing.
     const modifiedMessage = marked.parse(message);
 
-    // Remove the loading placeholder if it exists
+    // Remove loading
     const loadingMessageBlock = document.getElementById("loading-message");
     if (loadingMessageBlock) {
-        loadingMessageBlock.remove();
+        loadingMessageBlock.remove(); // Remove from DOM for clarity
     }
+    console.log("Removing loading message:", loadingMessageBlock);
 
-    // Create the final AI message structure
+    // Create AI avatar/image
+    const imgElement = document.createElement('img');
+    imgElement.src = '/img/MinikZekaAI-Clean.png'; // or your AI image
+    imgElement.className = 'w-8 h-8 mr-2 rounded-full';
+
+    // Message text container
+    const messageText = document.createElement('div');
+    messageText.className = "bg-gray-100 text-gray-900 rounded-lg p-3 max-w-xs";
+    messageText.innerHTML = ""; // Typewriter will fill this
+
+    // Outer container for AI message
     const aiMessage = document.createElement('div');
-    aiMessage.classList.add("flex", "items-start");
-
-
-    const messageContainer = document.createElement('div');
-    messageContainer.classList.add("bg-gray-400", "p-3", "rounded-lg", "max-w-xl");
-
-    const messageText = document.createElement('p');
-    messageText.classList.add("text-white");
-    messageText.innerHTML = ""; // Start with an empty string
-
-    messageContainer.appendChild(messageText);
+    aiMessage.className = "flex items-start my-2";
     aiMessage.appendChild(imgElement);
-    aiMessage.appendChild(messageContainer);
+    aiMessage.appendChild(messageText);
 
-    chatBox.appendChild(aiMessage);  // Add message container to chat box
+    chatBox.appendChild(aiMessage);
 
-    // Initialize the typewriter effect on the message text
+    // Typewriter effect
     const typewriter = new Typewriter(messageText, {
         delay: 10,
         cursor: ''
     });
 
-    typewriter.typeString(modifiedMessage).start().callFunction(() => {
-        chatBox.scrollTop = chatBox.scrollHeight;  // Scroll after typing is done
-    });
+    typewriter
+        .typeString(modifiedMessage)
+        .start()
+        .callFunction(() => {
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
 
-    // Ensure the scroll is updated after the AI's response
     setTimeout(() => {
         chatBox.scrollTop = chatBox.scrollHeight;
-    }, 100); // Add a small delay to ensure scrolling happens after message is rendered
+    }, 100);
 });
 
 // Function to send user input to backend
 function sendPrompt() {
-    var input = document.getElementById("user-input");
-    var chatBox = document.getElementById("chat-box");
+    const input = document.getElementById("chatInput");
+    const chatBox = document.getElementById("chatContent");
+    const text = input.value.trim();
+    if (!text) return;
 
-    if (input.value.trim() === "") return; // Don't send empty messages
-
-    // Save the input value before clearing
-    const userMessageText = input.value;
-
-    // 1. Add User's Message to Chat Box
-    const userMessage = `
-        <div class="flex items-end justify-end">
-            <div id="chat-input" class="bg-blue-600 p-3 rounded-lg max-w-xl text-white">
-                <p>${userMessageText}</p>
-            </div>
-        </div>`;
-    chatBox.innerHTML += userMessage;
-    chatBox.scrollTop = chatBox.scrollHeight; // Scroll to the bottom
-
-    // 2. Clear the input field
+    chatBox.innerHTML += `<div class="my-2 flex justify-end"><div class="bg-yellow-300 px-3 py-2 text-gray-900 max-w-xs rounded-lg">${text}</div></div>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
     input.value = "";
 
-    // 3. Ensure the connection ID is available
     if (!hubConnection.connectionId) {
         console.error("SignalR Connection ID is not available.");
         return;
     }
 
-    // 4. Add a loading message placeholder
+    // Loading spinner as a DOM element
     const loadingMessageBlock = document.createElement('div');
     loadingMessageBlock.id = "loading-message";
-    loadingMessageBlock.classList.add("flex", "items-start");
-
-
-    const loadingContainer = document.createElement('div');
-    loadingContainer.classList.add("mb-10", "p-3", "rounded-lg", "max-w-xl");
-
-    // Create and add the loading GIF image
-    loadingContainer.innerHTML = `
-<svg class="animate-spin w-10 h-10 text-yellow-400 mr-10 mb-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
-  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
-</svg>`;
-
-
-    loadingContainer.appendChild(gifImage);
-    loadingMessageBlock.appendChild(aiImage);
-    loadingMessageBlock.appendChild(loadingContainer);
+    loadingMessageBlock.className = "flex items-start";
+    loadingMessageBlock.innerHTML = `
+        <div class="mb-10 p-3 rounded-lg max-w-xl">
+            <svg class="animate-spin w-10 h-10 text-yellow-400 mr-10 mb-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"/>
+            </svg>
+        </div>`;
     chatBox.appendChild(loadingMessageBlock);
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    // 5. Send the prompt to backend
-    console.log("Sending Prompt:", userMessageText);
-    console.log("Connection ID:", hubConnection.connectionId);
-
     fetch("/Platform/Sohbet", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            prompt: userMessageText,
+            prompt: text,
             connectionId: hubConnection.connectionId
         })
     })
-        .then(response => response.json())
-        .then(data => {
-            if (!data.response) {
-                console.error("Invalid API response:", data);
+        .then(async response => {
+            if (!response.ok) {
+                console.log("HTTP error:", response.status, response.statusText);
                 return;
             }
-            // Optionally, you could handle the response here too,
-            // but we will update the placeholder in the SignalR callback.
-        })
-        .catch(error => console.error("Error:", error));
+            const text = await response.text();
+            if (!text) {
+                console.log("Empty response body");
+                return;
+            }
+            let data;
+            try {
+                data = JSON.parse(text);
+            } catch (e) {
+                console.log("Response not valid JSON:", text);
+                return;
+            }
+            // Now use data as before
+            if (!data.response) {
+                console.log("Invalid API response:", data);
+                return;
+            }
+        });
+
+        
 }
+
+
+// Only trigger sendPrompt when Enter is pressed inside the chat input
+document.getElementById('chatInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        sendPrompt();
+    }
+});
