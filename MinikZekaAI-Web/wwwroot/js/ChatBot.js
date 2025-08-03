@@ -1,5 +1,5 @@
 ﻿var hubConnection = new signalR.HubConnectionBuilder()
-    .withUrl("https://localhost:7213/ai-hub")
+    .withUrl("/ai-hub")
     .build();
 
 async function startHubConnection() {
@@ -71,7 +71,7 @@ function sendPrompt() {
     const text = input.value.trim();
     if (!text) return;
 
-    chatBox.innerHTML += `<div class="my-2 flex justify-end"><div class="bg-yellow-300 px-3 py-2 text-gray-900 max-w-xs rounded-lg">${text}</div></div>`;
+    chatBox.innerHTML += `<div class="my-2 flex justify-end"><div class="bg-yellow-200 px-3 py-2 text-gray-900 max-w-xs rounded-lg">${text}</div></div>`;
     chatBox.scrollTop = chatBox.scrollHeight;
     input.value = "";
 

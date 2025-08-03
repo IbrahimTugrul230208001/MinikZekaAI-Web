@@ -51,7 +51,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/Platform/AnaSayfa");
+    context.Response.Redirect("/Giris/Anket");
     return Task.CompletedTask;
 });
 

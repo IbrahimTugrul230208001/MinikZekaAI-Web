@@ -5,8 +5,30 @@
 ];
 
 let current = 0;
+function validateCurrentInput() {
+    if (current === 0) {
+        // Validate name input
+        const val = document.getElementById("answer").value.trim();
+        if (val === "") {
+            alert("Lütfen isminizi giriniz."); // Replace with better UI if wanted
+            document.getElementById("answer").focus();
+            return false;
+        }
+    } else if (current === 1) {
+        // Validate grade selection
+        const sel = document.getElementById("grade-select").value;
+        if (!sel) {
+            alert("Lütfen sınıfınızı seçiniz.");
+            document.getElementById("grade-select").focus();
+            return false;
+        }
+    }
+    return true;
+}
 
 function nextQuestion() {
+    if (!validateCurrentInput()) return;
+
     // 1. Before incrementing, determine which answer to send
     if (current === 0) {
         // Sending answer to first question (nickname, from input)
@@ -23,6 +45,7 @@ function nextQuestion() {
         document.getElementById("survey-label").textContent = questions[current];
         document.getElementById("answer").classList.add("hidden");
         document.getElementById("grade-select").classList.remove("hidden");
+        document.getElementById("familyaccount").style.display = "none";
     }
     else if (current >= questions.length) {
         document.getElementById("survey-label").textContent = "Teşekkürler!";
@@ -30,6 +53,8 @@ function nextQuestion() {
         document.getElementById("answer").classList.add("hidden");
         document.getElementById("grade-select").classList.add("hidden");
         document.getElementById("next").style.display = "none";
+        document.getElementById("familyaccount").style.display = "none";
+
         confetti({
             particleCount: 100,
             spread: 70,
@@ -58,7 +83,7 @@ document.getElementById("answer").addEventListener("keydown", function (e) {
     }
 });
 function sendAnswer(question, answer) {
-    fetch('/YourController/ReceiveAnswer', {
+    fetch('/Giris/CevapAsync', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

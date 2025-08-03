@@ -40,10 +40,10 @@
     </nav>
     <main class="flex flex-col items-center justify-center gap-8 py-10">
         <div class="grid grid-cols-2 gap-8 max-w-screen-md w-full">
-            <Card title="Exam Prep" icon="file-text" color="bg-amber-100" />
-            <Card title="Alphabet" icon="type" color="bg-rose-100" />
-            <Card title="Puzzles" icon="puzzle" color="bg-sky-100" />
-            <Card title="Stories" icon="book-open" color="bg-violet-100" />
+            <Card title="Exam Prep" icon="file-text" color="bg-amber-300" />
+            <Card title="Alphabet" icon="type" color="bg-rose-300" />
+            <Card title="Puzzles" icon="puzzle" color="bg-sky-300" />
+            <Card title="Stories" icon="book-open" color="bg-violet-300" />
         </div>
     </main>
     <button class="fixed bottom-6 cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
@@ -61,12 +61,12 @@
         <!-- Header -->
         <div class="flex items-center justify-between p-3 border-b bg-gray-900 rounded-t-2xl">
             <span class="font-semibold text-white text-lg">MinikZekaAI</span>
-            <span id="connectionId"></span>
-            <button id="closeChat" class="text-gray-400 hover:text-gray-500 text-2xl">&times;</button>
+            <span id="connectionId" hidden></span>
+            <button id="closeChat" class="text-gray-300 hover:text-gray-500 text-2xl cursor-pointer">&times;</button>
         </div>
         <!-- Chat Area -->
         <div id="chatContent" class="flex-1 p-3 overflow-y-auto text-gray-700">
-            <img class="opacity-60" src="~/img/geminipower.png" />
+            <img class="opacity-50" src="~/img/geminipower.png" />
         </div>
 
 
@@ -84,8 +84,8 @@
     <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
     <script src="/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
     <script src="/lib/marked/marked.min.js"></script>
-    <script src="/js/ChatBot.js"></script>
-    <script src="/js/AnaSayfa.js"></script>
+    <script src="/js/chatbot.js"></script>
+    <script src="/js/anasayfa.js"></script>
 
 </body>
 </html>
