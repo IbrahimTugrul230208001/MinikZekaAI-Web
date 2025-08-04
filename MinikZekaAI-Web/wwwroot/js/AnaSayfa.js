@@ -5,12 +5,6 @@ const chatForm = document.getElementById('chatForm');
 const chatInput = document.getElementById('chatInput');
 const chatContent = document.getElementById('chatContent');
 
-// Show chat box
-openBtn.addEventListener('click', () => {
-    chatBox.classList.remove('scale-0', 'opacity-0');
-    chatBox.classList.add('scale-100', 'opacity-100');
-    setTimeout(() => chatInput.focus(), 250);
-});
 
 // Hide chat box
 closeBtn.addEventListener('click', () => {
@@ -19,10 +13,17 @@ closeBtn.addEventListener('click', () => {
 });
 
 // Close chat on outside click
-document.addEventListener('click', e => {
-    if (!chatBox.contains(e.target) && !openBtn.contains(e.target)) {
+openBtn.addEventListener('click', () => {
+    const isOpen = chatBox.classList.contains('scale-100') && chatBox.classList.contains('opacity-100');
+    if (isOpen) {
+        // Hide
         chatBox.classList.remove('scale-100', 'opacity-100');
         chatBox.classList.add('scale-0', 'opacity-0');
+    } else {
+        // Show
+        chatBox.classList.remove('scale-0', 'opacity-0');
+        chatBox.classList.add('scale-100', 'opacity-100');
+        setTimeout(() => chatInput.focus(), 250);
     }
 });
 

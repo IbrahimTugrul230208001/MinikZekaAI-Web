@@ -12,14 +12,13 @@ var key = configuration["SMTP:key"];
 string apiKey = configuration["Gemini:key"];
 // Removes all whitespace characters (spaces, tabs, newlines, etc.)
 string cleanedKey = new string(apiKey.Where(c => !char.IsWhiteSpace(c)).ToArray());
-var skBuilder = Kernel.CreateBuilder();
 #pragma warning disable SKEXP0070
 builder.Services
     .AddKernel()
     .AddGoogleAIGeminiChatCompletion(
         modelId: "gemini-2.0-flash",
         apiKey: apiKey
-    );
+    ).Plugins.AddFromType<GenerateStoryPlugin>();
 
 builder.Services.AddSignalR();
 builder.Services.AddControllersWithViews();
@@ -51,7 +50,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/Giris/Anket");
+    context.Response.Redirect("/Platform/Anasayfa");
     return Task.CompletedTask;
 });
 

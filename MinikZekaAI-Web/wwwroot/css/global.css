@@ -50,3 +50,16 @@ input:-webkit-autofill:active {
     animation: fadeIn 0.8s ease-out forwards;
     opacity: 0;
 }
+@media (max-width: 640px) {
+    #chatBox {
+        width: 60vw !important;
+        min-width: 0 !important;
+        font-size: 60% !important;
+    }
+
+        #chatBox input,
+        #chatBox button {
+            font-size: 1em !important;
+            padding: 0.5em !important;
+        }
+}

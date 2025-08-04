@@ -13,6 +13,10 @@ namespace MinikZekaAI_Web.Controllers
         {
             return View();
         }
-      
+        public IActionResult AileKayit()
+        {
+            return View();
+        }
+
     }
 }
