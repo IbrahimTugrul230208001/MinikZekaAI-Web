@@ -22,6 +22,10 @@ namespace MinikZekaAI_Web.Controllers
         {
             return View();
         }
+        public IActionResult Hikayeler()
+        {
+                       return View();
+        }
         public async Task<IActionResult> Sohbet([FromBody] ChatRequest chatRequest, CancellationToken cancellationToken)
         {
             if (chatRequest == null || string.IsNullOrEmpty(chatRequest.Prompt))

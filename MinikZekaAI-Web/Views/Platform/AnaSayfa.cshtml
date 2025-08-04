@@ -37,6 +37,12 @@
                 </span>
             </div>
 
+            <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
+                <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" />
+                </svg>
+                Aile Kontrolü
+            </a>
         </div>
     </nav>
 
@@ -74,20 +80,24 @@
                 <span class="font-bold text-lg">Bulmacalar</span>
             </div>
 
+            
             <!-- Stories -->
-            <div class="transition-transform hover:scale-105 cursor-pointer bg-violet-300 hover:bg-violet-400 active:bg-violet-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
-                <!-- Book Open SVG -->
-                <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M2 7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" />
-                    <path d="M22 7a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2z" />
-                </svg>
-                <span class="font-bold text-lg">Hikayeler</span>
-            </div>
+            <a href="/Platform/Hikayeler">
+                <div class="transition-transform hover:scale-105 cursor-pointer bg-violet-300 hover:bg-violet-400 active:bg-violet-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                    <!-- Book Open SVG -->
+                    <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M2 7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z" />
+                        <path d="M22 7a2 2 0 0 0-2-2h-6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2z" />
+                    </svg>
+                    <span class="font-bold text-lg">Hikayeler</span>
+                </div>
+            </a>
+        
         </div>
     </main>
 
 
-    <button class="fixed bottom-24 cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
+    <button class="fixed bottom-[67px] cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
             aria-label="Chat with AI">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="block"
              xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +107,7 @@
     </button>
 
     <div id="chatBox"
-         class="fixed bottom-40 right-6 w-96 max-w-[95vw] bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300 scale-0 opacity-0
+         class="fixed right-6 bottom-32 w-96 max-w-[95vw] bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300 scale-0 opacity-0
                 sm:w-96 sm:max-w-[95vw] w-[60vw] max-w-[95vw] text-base"
          style="min-height: 480px; max-height: 480px;">
         <!-- Header -->
@@ -119,36 +129,6 @@
             </button>
         </div>
     </div>
-    <!-- Add this just before </body> -->
-    <nav class="fixed bottom-0 left-0 w-full z-50 bg-gray-900 py-2 shadow-xl">
-        <div class="max-w-7xl mx-auto flex items-center justify-between h-[56px] px-4">
-            <!-- Left: Example Home -->
-            <a href="/Platform/AnaSayfa" class="flex flex-col items-center justify-center gap-1 text-white hover:text-yellow-300 transition font-semibold">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M3 9.5L12 4l9 5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" />
-                    <path d="M9 22V12h6v10" />
-                </svg>
-                <span>Anasayfa</span>
-            </a>
-
-            <!-- Center: Example Cards/Features (add more as needed) -->
-            <a href="/Platform/Egzersizler" class="flex flex-col items-center gap-1 text-white hover:text-yellow-300 transition font-semibold">
-                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M12 8v4l3 3" />
-                </svg>
-                Egzersizler
-            </a>
-
-            <!-- Right: Example Family Control -->
-            <a href="/Platform/AileKontrolu" class="flex flex-col items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition">
-                <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" />
-                </svg>
-                Aile Kontrolü
-            </a>
-        </div>
-    </nav>
 
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>

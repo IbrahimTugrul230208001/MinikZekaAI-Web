@@ -18,7 +18,7 @@ builder.Services
     .AddGoogleAIGeminiChatCompletion(
         modelId: "gemini-2.0-flash",
         apiKey: apiKey
-    ).Plugins.AddFromType<GenerateStoryPlugin>();
+    );
 
 builder.Services.AddSignalR();
 builder.Services.AddControllersWithViews();
