@@ -28,8 +28,10 @@ namespace MinikZekaAI_Web.Controllers
         {
             return View();
         }
-
-
+        public IActionResult JuriNotu()
+        {
+            return View();
+        }
         public IActionResult Sinavlar()
         {
             ViewData["StudentGrade"] = _userService.StudentGrade;
