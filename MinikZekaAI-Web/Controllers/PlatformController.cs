@@ -18,6 +18,7 @@ namespace MinikZekaAI_Web.Controllers
 
         public IActionResult AnaSayfa()
         {
+            ViewData["UserName"] = _userService.StudentName;
             return View();
         }
         public IActionResult AileKontrolu()
@@ -32,9 +33,13 @@ namespace MinikZekaAI_Web.Controllers
         {
             return View();
         }
-        public IActionResult Flaskartlar()
+        public IActionResult Flaskart()
         {
              return View();
+        }
+        public IActionResult Bulmacalar()
+        {
+            return View();
         }
         public IActionResult Sinavlar()
         {
