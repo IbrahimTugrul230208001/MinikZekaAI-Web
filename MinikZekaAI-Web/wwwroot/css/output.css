@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-amber-300: oklch(87.9% 0.169 91.605);
     --color-amber-400: oklch(82.8% 0.189 84.429);
     --color-amber-500: oklch(76.9% 0.188 70.08);
@@ -15,6 +16,8 @@
     --color-yellow-300: oklch(90.5% 0.182 98.111);
     --color-yellow-400: oklch(85.2% 0.199 91.936);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-sky-50: oklch(97.7% 0.013 236.62);
     --color-sky-300: oklch(82.8% 0.111 230.318);
     --color-sky-400: oklch(74.6% 0.16 232.661);
     --color-sky-500: oklch(68.5% 0.169 237.323);
@@ -616,14 +619,8 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-16 {
-    height: calc(var(--spacing) * 16);
-  }
   .h-20 {
     height: calc(var(--spacing) * 20);
-  }
-  .h-24 {
-    height: calc(var(--spacing) * 24);
   }
   .h-25 {
     height: calc(var(--spacing) * 25);
@@ -649,8 +646,8 @@
   .h-full {
     height: 100%;
   }
-  .max-h-80 {
-    max-height: calc(var(--spacing) * 80);
+  .max-h-\[300px\] {
+    max-height: 300px;
   }
   .min-h-\[calc\(100vh-56px\)\] {
     min-height: calc(100vh - 56px);
@@ -670,14 +667,8 @@
   .w-10 {
     width: calc(var(--spacing) * 10);
   }
-  .w-16 {
-    width: calc(var(--spacing) * 16);
-  }
   .w-20 {
     width: calc(var(--spacing) * 20);
-  }
-  .w-24 {
-    width: calc(var(--spacing) * 24);
   }
   .w-25 {
     width: calc(var(--spacing) * 25);
@@ -776,6 +767,9 @@
   .animate-spin {
     animation: var(--animate-spin);
   }
+  .cursor-not-allowed {
+    cursor: not-allowed;
+  }
   .cursor-pointer {
     cursor: pointer;
   }
@@ -838,6 +832,9 @@
   }
   .gap-5 {
     gap: calc(var(--spacing) * 5);
+  }
+  .gap-6 {
+    gap: calc(var(--spacing) * 6);
   }
   .gap-8 {
     gap: calc(var(--spacing) * 8);
@@ -962,14 +959,20 @@
   .bg-gray-100 {
     background-color: var(--color-gray-100);
   }
-  .bg-gray-300 {
-    background-color: var(--color-gray-300);
-  }
   .bg-gray-900 {
     background-color: var(--color-gray-900);
   }
+  .bg-green-500 {
+    background-color: var(--color-green-500);
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
   .bg-rose-300 {
     background-color: var(--color-rose-300);
+  }
+  .bg-sky-50 {
+    background-color: var(--color-sky-50);
   }
   .bg-sky-300 {
     background-color: var(--color-sky-300);
@@ -997,6 +1000,9 @@
   }
   .bg-yellow-300 {
     background-color: var(--color-yellow-300);
+  }
+  .bg-yellow-400 {
+    background-color: var(--color-yellow-400);
   }
   .p-0 {
     padding: calc(var(--spacing) * 0);
@@ -1151,6 +1157,9 @@
   .text-end {
     text-align: end;
   }
+  .text-left {
+    text-align: left;
+  }
   .text-start {
     text-align: start;
   }
@@ -1282,6 +1291,9 @@
   }
   .opacity-50 {
     opacity: 50%;
+  }
+  .opacity-60 {
+    opacity: 60%;
   }
   .opacity-75 {
     opacity: 75%;
@@ -1415,13 +1427,6 @@
       }
     }
   }
-  .hover\:bg-gray-400 {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-gray-400);
-      }
-    }
-  }
   .hover\:bg-rose-400 {
     &:hover {
       @media (hover: hover) {
@@ -1433,6 +1438,13 @@
     &:hover {
       @media (hover: hover) {
         background-color: var(--color-sky-400);
+      }
+    }
+  }
+  .hover\:bg-sky-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-sky-500);
       }
     }
   }
@@ -1450,6 +1462,13 @@
       }
     }
   }
+  .hover\:bg-yellow-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-yellow-500);
+      }
+    }
+  }
   .hover\:text-gray-500 {
     &:hover {
       @media (hover: hover) {
@@ -1461,6 +1480,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-gray-800);
+      }
+    }
+  }
+  .hover\:text-white {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
       }
     }
   }
@@ -1568,6 +1594,11 @@
   .sm\:grid-cols-2 {
     @media (width >= 40rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  .sm\:grid-cols-3 {
+    @media (width >= 40rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
   .md\:flex {

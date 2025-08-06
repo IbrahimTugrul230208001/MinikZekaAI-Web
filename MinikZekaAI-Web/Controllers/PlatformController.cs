@@ -29,15 +29,11 @@ namespace MinikZekaAI_Web.Controllers
             return View();
         }
 
-        public IActionResult Sınavlar()
+
+        public IActionResult Sinavlar()
         {
+            ViewData["StudentGrade"] = _userService.StudentGrade;
             return View();
-        }
-        [HttpGet]
-        public IActionResult SınavOlustur(ExamObject examObject)
-        {
-            examObject.StudentGrade = _userService.StudentGrade;
-            return View(examObject);
         }
         public async Task<IActionResult> Sohbet([FromBody] ChatRequest chatRequest, CancellationToken cancellationToken)
         {

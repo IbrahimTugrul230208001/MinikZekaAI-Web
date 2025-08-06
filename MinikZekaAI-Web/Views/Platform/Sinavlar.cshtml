@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using MinikZekaAI_Web.Models
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
@@ -12,7 +13,9 @@
           rel="stylesheet" />
     <link href="~/css/output.css" rel="stylesheet" />
 </head>
-
+@{
+    int studentGrade = (int)ViewData["StudentGrade"];
+}
 <body class="relative overflow-hidden bg-yellow-50">
 
     <div class="absolute inset-0 z-0 pointer-events-none
@@ -72,10 +75,32 @@
     <div id="question-criteria" class="min-h-[calc(100vh-56px)] flex items-center justify-center pb-20 hidden">
         <div class="max-w-md w-full bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4">
             <h2 class="text-2xl font-bold text-gray-800 mb-2">Sınav Oluşturma</h2>
+            <h3 class="text-gray-700 font-semibold text-xl">Konu</h3>
             <select id="question-concept" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300"></select>
-
+            <h3 class="text-gray-700 font-semibold text-xl">Zorluk</h3>
+            <select id="question-difficulty" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300 mt-2">
+                <option>Zor</option>
+                <option>Orta</option>
+                <option>Kolay</option>
+            </select>
+            <input id="question-grade" type="hidden" value="@studentGrade" />
+            <button onclick="generateQuestion()" class="flex justify-center items-center bg-yellow-300 hover:bg-yellow-400 cursor-pointer text-gray-900 rounded-lg px-4 py-2 font-semibold transition">Oluştur</button>
         </div>
-
+    </div>
+    <div id="question-container" class="max-w-xl mx-auto mt-10 bg-white rounded-2xl shadow-xl p-8 flex flex-col gap-6 hidden">
+        <div id="question" class="text-lg font-bold text-gray-800 mb-2">
+            
+        </div>
+        <div class="flex flex-col gap-4">
+            <button id="response1" class="w-full px-4 py-3 cursor-pointer rounded-xl bg-sky-50 hover:bg-sky-500 hover:text-white border font-semibold text-left transition"></button>
+            <button id="response2" class="w-full px-4 py-3 cursor-pointer rounded-xl bg-sky-50 hover:bg-sky-500 hover:text-white border font-semibold text-left transition"></button>
+            <button id="response3" class="w-full px-4 py-3 cursor-pointer rounded-xl bg-sky-50 hover:bg-sky-500 hover:text-white border font-semibold text-left transition"></button>
+            <button id="response4" class="w-full px-4 py-3 cursor-pointer rounded-xl bg-sky-50 hover:bg-sky-500 hover:text-white border font-semibold text-left transition"></button>
+        </div>
+        <button id="regenerate"
+                class="mt-6 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-xl shadow transition">
+            Yeniden Oluştur
+        </button>
     </div>
     <button class="fixed bottom-12 cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
             aria-label="Chat with AI">
@@ -112,7 +137,6 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
     <script src="/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
     <script src="/lib/marked/marked.min.js"></script>
     <script src="/js/chatbot.js"></script>
