@@ -1,7 +1,7 @@
 ﻿const questions = [
     "İsmin nedir?",
     "Kaçıncı Sınıfsın?",
-    // Add more...
+
 ];
 
 let current = 0;
@@ -35,6 +35,7 @@ function nextQuestion() {
         sendAnswer(questions[current], document.getElementById("answer").value);
     } else if (current === 1) {
         // Sending answer to grade question (from select)
+
         sendAnswer(questions[current], document.getElementById("grade-select").value);
     } // Add more as needed for more questions
 
@@ -47,6 +48,7 @@ function nextQuestion() {
         document.getElementById("grade-select").classList.remove("hidden");
         document.getElementById("familyaccount").style.display = "none";
     }
+   
     else if (current >= questions.length) {
         document.getElementById("survey-label").textContent = "Teşekkürler!";
         document.getElementById("survey-label").classList.add("justify-center");
@@ -83,7 +85,7 @@ document.getElementById("answer").addEventListener("keydown", function (e) {
     }
 });
 function sendAnswer(question, answer) {
-    fetch('/Giris/CevapAsync', {
+    fetch('/Giris/Cevap', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

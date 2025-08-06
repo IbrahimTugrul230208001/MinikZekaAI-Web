@@ -1,4 +1,4 @@
-﻿  <!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
@@ -45,51 +45,14 @@
         </div>
     </nav>
 
-    <div id="story-criteria" class="min-h-[calc(100vh-56px)] flex items-center justify-center pb-20">
-        <div class="max-w-md w-full bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">Hikaye Oluşturma</h2>
-
-        <!-- Theme -->
-        <label class="font-medium text-gray-700">Tema</label>
-        <select id="story-theme" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300">
-            <option>Macera</option>
-            <option>Bilim</option>
-            <option>Arkadaşlık</option>
-            <option>Aile</option>
-            <option>Hayvanlar</option>
-            <option>Doğa</option>
-            <option>Yardımlaşma</option>
-            <option>Keşif</option>
-            <option>Cesaret</option>
-            <option>Dürüstlük</option>
-            <option>Süpriz yap</option>
-        </select>
-        <!-- Main Character -->
-        <label class="font-medium text-gray-700">Ana Karakter</label>
-        <input id="main-character" type="text" placeholder="Tavşan, Robot, Çocuk..." class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300" />
-
-        <!-- Length -->
-        <label class="font-medium text-gray-700">Uzunluk</label>
-        <select id="story-length" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300">
-            <option>Kısa (3 paragraf)</option>
-            <option>Orta (5 paragraf)</option>
-            <option>Uzun (5+ paragraf)</option>
-        </select>
-
-        <button onclick="generateStory()" class="mt-1 bg-yellow-300 cursor-pointer hover:bg-yellow-400 text-gray-900 font-semibold rounded-lg p-3 transition">
-            Hikaye Oluştur
-        </button>
-    </div>
-
-</div>
+  
     <div id="story-container"
-         class="w-[70vw] max-h-[300px] mx-auto bg-white shadow-xl rounded-2xl p-6 flex overflow-y-auto justify-center align-center flex-col gap-4 mt-10 hidden"
+         class="w-[70vw] max-h-80 mx-auto bg-white shadow-xl rounded-2xl p-6 flex overflow-y-auto justify-center align-center flex-col gap-4 mt-10 hidden"
          style="padding-left:20px; padding-right:20px;">
         <h2 class="text-2xl font-bold text-gray-800 mb-4">Hikayeniz</h2>
         <div id="story" class="text-gray-700 whitespace-pre-line leading-relaxed">
-
         </div>
-        <a href="/Platform/Hikayeler" class="mt-6 bg-yellow-300 hover:bg-yellow-400 text-gray-900 font-semibold rounded-lg p-3 transition text-center">
+        <a href="/Platform/Hikayeler" class="mt-6 bg-yellow-300 hover:bg-yellow-400 text-gray-900 font-semibold rounded-lg p-3 transition">
             Yeniden Oluştur
         </a>
     </div>

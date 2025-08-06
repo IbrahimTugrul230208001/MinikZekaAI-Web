@@ -25,6 +25,7 @@ builder.Services.AddControllersWithViews();
 
 // Register UserService as a singleton
 builder.Services.AddSingleton<IAIServices, AIService>();
+builder.Services.AddSingleton<IUserService, UserService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -50,7 +51,7 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/Platform/Anasayfa");
+    context.Response.Redirect("/Giris/Anket");
     return Task.CompletedTask;
 });
 

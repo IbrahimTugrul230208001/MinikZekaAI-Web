@@ -1,5 +1,124 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tailwind CDN -->
+
+    <link href="~/css/global.css" rel="stylesheet" />
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+          rel="stylesheet" />
+    <link href="~/css/output.css" rel="stylesheet" />
+</head>
+
+<body class="relative overflow-hidden bg-yellow-50">
+
+    <div class="absolute inset-0 z-0 pointer-events-none
+     bg-[radial-gradient(ellipse_at_top_left,_#a5f3fc_30%,_transparent_70%),
+        radial-gradient(ellipse_at_bottom_right,_#fed7aa_30%,_transparent_70%)]"></div>
+    <nav class="sticky top-0 z-70 bg-gray-900 py-2 text-white backdrop-blur-md shadow-xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between h-[64px] px-4">
+
+            <!-- Desktop: Left-aligned branding -->
+            <div class="hidden md:flex justify-between items-center space-x-5">
+                <img src="/img/MinikZekaAI-Clean.png" alt="Logo" class="h-[72px] rounded-full">
+                <span class="text-white text-2xl font-extrabold" style="font-family: 'Baloo 2', cursive;">
+                    MinikZekaAI
+                </span>
+            </div>
+
+            <!-- Mobile: Centered branding -->
+            <div class="flex md:hidden w-full justify-center items-center space-x-2">
+                <img src="/img/MinikZekaAI-Clean.png" alt="Logo" class="h-10 rounded-full">
+                <span class="text-white text-xl font-extrabold" style="font-family: 'Baloo 2', cursive;">
+                    MinikZekaAI
+                </span>
+            </div>
+            <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
+                <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" />
+                </svg>
+                Aile Kontrolü
+            </a>
+        </div>
+    </nav>
+    <main class="flex flex-col flex-1 min-h-[calc(100vh-64px-64px)] py-10 px-5 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full flex-1 h-full mx-auto items-stretch">
+
+
+            <!-- Alphabet -->
+            <div data-lesson="Türkçe" class="lesson-card transition-transform hover:scale-105 cursor-pointer bg-sky-300 hover:bg-sky-400 active:bg-sky-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                <svg class="h-20 w-20" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M829.44 911.36c45.245 0 81.92-36.675 81.92-81.92V194.56c0-45.245-36.675-81.92-81.92-81.92H194.56c-45.245 0-81.92 36.675-81.92 81.92v634.88c0 45.245 36.675 81.92 81.92 81.92h634.88zm0 40.96H194.56c-67.866 0-122.88-55.014-122.88-122.88V194.56c0-67.866 55.014-122.88 122.88-122.88h634.88c67.866 0 122.88 55.014 122.88 122.88v634.88c0 67.866-55.014 122.88-122.88 122.88z"></path><path d="M322.684 797.914L528.15 228.201c3.837-10.64-1.677-22.376-12.317-26.213s-22.376 1.677-26.213 12.317L284.154 784.018c-3.837 10.64 1.677 22.376 12.317 26.213s22.376-1.677 26.213-12.317z"></path><path d="M739.848 784.018L534.382 214.305c-3.837-10.64-15.573-16.155-26.213-12.317s-16.155 15.573-12.317 26.213l205.466 569.713c3.837 10.64 15.573 16.155 26.213 12.317s16.155-15.573 12.317-26.213z"></path><path d="M375.165 612.512h274.36c11.311 0 20.48-9.169 20.48-20.48s-9.169-20.48-20.48-20.48h-274.36c-11.311 0-20.48 9.169-20.48 20.48s9.169 20.48 20.48 20.48z"></path></g></svg>
+                <span class="font-bold text-lg">Türkçe</span>
+            </div>
+
+            <!-- Puzzles -->
+            <div data-lesson="Hayat Bilgisi" class="lesson-card transition-transform hover:scale-105 cursor-pointer bg-sky-300 hover:bg-sky-400 active:bg-sky-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                <!-- Puzzle SVG -->
+                <svg class="h-20 w-20" fill="#000000" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 370.667 370.667" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M118.911,132.971c20.765,0,37.658-16.894,37.658-37.659c0-20.766-16.893-37.661-37.658-37.661 c-20.768,0-37.664,16.895-37.664,37.661C81.248,116.077,98.144,132.971,118.911,132.971z M118.911,75.651 c10.839,0,19.658,8.82,19.658,19.661c0,10.84-8.818,19.659-19.658,19.659c-10.842,0-19.664-8.819-19.664-19.659 C99.248,84.471,108.069,75.651,118.911,75.651z M242.443,132.971c20.766,0,37.66-16.894,37.66-37.659 c0-20.766-16.894-37.661-37.66-37.661s-37.66,16.895-37.66,37.661C204.783,116.077,221.677,132.971,242.443,132.971z M242.443,75.651c10.84,0,19.66,8.82,19.66,19.661c0,10.84-8.819,19.659-19.66,19.659s-19.66-8.819-19.66-19.659 C222.783,84.471,231.603,75.651,242.443,75.651z M174.754,215.35l13.739-31.828c6.528-15.117,18.277-35.213,44.838-35.213h18.227 c26.562,0,38.31,20.097,44.835,35.213l13.74,31.828c1.97,4.563-0.132,9.86-4.695,11.83c-4.565,1.971-9.86-0.132-11.83-4.695 l-13.74-31.828c-7.466-17.293-15.668-24.347-28.31-24.347h-18.227c-12.642,0-20.845,7.054-28.312,24.348l-13.738,31.827 c-1.468,3.401-4.784,5.436-8.268,5.436c-1.19,0-2.4-0.238-3.563-0.739C174.887,225.21,172.784,219.913,174.754,215.35z M370.442,246.027c-0.57,3.704-2.63,9.105-9.204,13.781c-12.428,8.839-37.562,12.465-68.147,12.466 c-34.62,0-76.225-4.645-114.308-11.635c-47.394-8.698-91.4-21.052-123.914-34.786c-37.664-15.91-54.802-31.231-52.396-46.842 c2.562-16.663,25.494-21.195,33.03-22.684c4.878-0.965,9.61,2.208,10.574,7.084s-2.208,9.611-7.084,10.574 c-16.737,3.308-18.723,7.723-18.729,7.765c-0.271,1.759,5.59,11.498,36.404,25.256l10.138-23.484 c6.528-15.117,18.278-35.213,44.838-35.213h18.227c13.521,0,24.806,5.343,33.542,15.881c3.172,3.827,2.642,9.5-1.185,12.672 c-3.825,3.173-9.5,2.643-12.672-1.185c-5.298-6.391-11.553-9.368-19.684-9.368h-18.227c-12.642,0-20.845,7.054-28.313,24.348 l-10.015,23.197c29.924,11.401,67.964,21.601,108.716,29.08c88.737,16.287,153.184,13.292,168.772,2.206 c1.442-1.025,1.829-1.735,1.848-1.855c0.007-0.046-0.231-4.802-14.417-13.784c-4.2-2.659-5.449-8.219-2.79-12.418 c2.659-4.2,8.22-5.448,12.418-2.79C364.707,224.956,372.092,235.337,370.442,246.027z M358.579,284.296 c3.625,3.401,3.805,9.097,0.403,12.721c-10.672,11.371-38.003,16-72.351,16c-34.239,0-75.449-4.596-114.117-11.693 C89.107,286.016,20.587,260.341,2.01,237.435c-3.131-3.86-2.539-9.528,1.321-12.659c3.861-3.13,9.528-2.54,12.659,1.321 c13.352,16.463,72.52,41.508,159.773,57.521c99.572,18.276,160.362,11.449,170.094,1.08 C349.259,281.074,354.954,280.892,358.579,284.296z"></path> </g></svg>
+                <span class="font-bold text-lg">Hayat Bilgisi</span>
+            </div>
+
+            <div data-lesson="Matematik" class="lesson-card transition-transform hover:scale-105 cursor-pointer bg-sky-300 hover:bg-sky-400 active:bg-sky-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                    <!-- Book Open SVG -->
+                    <svg class="h-20 w-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14.4199 5.63965H21.6999" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M2.29883 5.64014H9.57883" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M14.4199 15.3301H21.6999" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path opacity="0.4" d="M14.4199 21.3896H21.6999" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M18.0898 9.27V2" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M2.29883 22L9.57883 14.73" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9.57883 22L2.29883 14.73" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    <span class="font-bold text-lg">Matematik</span>
+             </div>
+
+        </div>
+    </main>
+    <div id="question-criteria" class="min-h-[calc(100vh-56px)] flex items-center justify-center pb-20 hidden">
+        <div class="max-w-md w-full bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Sınav Oluşturma</h2>
+            <select id="question-concept" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300"></select>
+
+        </div>
+
+    </div>
+    <button class="fixed bottom-12 cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
+            aria-label="Chat with AI">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="block"
+             xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 3.33782C15.5291 2.48697 13.8214 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22C17.5228 22 22 17.5228 22 12C22 10.1786 21.513 8.47087 20.6622 7"
+                  stroke="#000" stroke-width="2" stroke-linecap="round" />
+        </svg>
+    </button>
+
+    <div id="chatBox"
+         class="fixed bottom-30 right-6 w-96 max-w-[95vw] bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300 scale-0 opacity-0
+                sm:w-96 sm:max-w-[95vw] w-[60vw] max-w-[95vw] text-base"
+         style="min-height: 480px; max-height: 480px;">
+        <!-- Header -->
+        <div class="flex items-center justify-between p-3 border-b bg-gray-900 rounded-t-2xl">
+            <span class="font-semibold text-white text-lg">MinikZekaAI</span>
+            <span id="connectionId" hidden></span>
+            <button id="closeChat" class="text-gray-300 hover:text-gray-500 text-2xl cursor-pointer">&times;</button>
+        </div>
+        <!-- Chat Area -->
+        <div id="chatContent" class="flex-1 p-3 overflow-y-auto text-gray-700">
+            <img class="opacity-50" src="~/img/geminipower.png" />
+        </div>
+
+        <!-- Input -->
+        <div class="p-3 border-t flex gap-2" id="chatForm">
+            <input id="chatInput" type="text" autocomplete="off" placeholder="Mesaj yaz..." class="flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-300" />
+            <button onclick="sendPrompt()" type="button" class="bg-yellow-300 hover:bg-yellow-400 text-black rounded-full p-3 cursor-pointer font-semibold">
+                <svg height="20" width="20" viewBox="0 0 24 24" fill="black" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 5V19M12 5L6 11M12 5L18 11" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+            </button>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
+    <script src="/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script src="/lib/marked/marked.min.js"></script>
+    <script src="/js/chatbot.js"></script>
+    <script src="/js/anasayfa.js"></script>
+    <script src="/js/sınavlar.js"></script>
+    <script src="/js/quiz_olusturma.js"></script>
+
+</body>
+</html>

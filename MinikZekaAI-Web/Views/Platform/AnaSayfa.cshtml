@@ -37,39 +37,60 @@
                 </span>
             </div>
 
-            <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
-                <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" />
-                </svg>
-                Aile Kontrolü
-            </a>
-        </div>
-    </nav>
+      <div class="flex gap-10">
+                <a href="/Platform/AnaSayfa" class="flex active-underline justify-between items-center justify-center gap-1 text-white font-bold">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M3 9.5L12 4l9 5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" />
+                        <path d="M9 22V12h6v10" />
+                    </svg>
+                    <span>Anasayfa</span>
+                </a>
+                <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
+                    <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" />
+                    </svg>
+                    Aile Kontrolü
+                </a>
+      </div>
+    </div>
+ </nav>
 
     <main class="flex flex-col flex-1 min-h-[calc(100vh-64px-64px)] py-10 px-5 pb-24">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full flex-1 h-full mx-auto items-stretch">
             <!-- Exam Prep -->
-            <div class="transition-transform hover:scale-105 cursor-pointer bg-amber-300 hover:bg-amber-400 active:bg-amber-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl  p-6 flex flex-col items-center justify-center h-full">
-                <!-- File Text SVG -->
-                <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                    <polyline points="14 2 14 8 20 8" />
-                    <line x1="16" y1="13" x2="8" y2="13" />
-                    <line x1="16" y1="17" x2="8" y2="17" />
-                    <polyline points="10 9 9 9 8 9" />
-                </svg>
-                <span class="font-bold text-lg">Sınav Hazırlığı</span>
-            </div>
+            <a href="/Platform/Sınavlar">
+                <div class="transition-transform hover:scale-105 cursor-pointer bg-amber-300 hover:bg-amber-400 active:bg-amber-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl  p-6 flex flex-col items-center justify-center h-full">
+                    <!-- File Text SVG -->
+                    <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                        <polyline points="14 2 14 8 20 8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                        <polyline points="10 9 9 9 8 9" />
+                    </svg>
+                    <span class="font-bold text-lg">Sınav Hazırlığı</span>
+                </div>
+
+            </a>
+  
 
             <!-- Alphabet -->
             <div class="transition-transform hover:scale-105 cursor-pointer bg-rose-300 hover:bg-rose-400 active:bg-rose-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
-                <!-- Type SVG -->
-                <svg class="w-10 h-10 mb-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <polyline points="4 7 4 4 20 4 20 7" />
-                    <line x1="9" y1="20" x2="15" y2="20" />
-                    <line x1="12" y1="4" x2="12" y2="20" />
+                <svg class="h-10 w-10" viewBox="0 0 64 48" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Background card (offset, thicker border) -->
+                    <rect x="9" y="5" width="48" height="34" rx="4" fill="none" stroke="#000" stroke-width="2.5" />
+                    <!-- Main card (foreground, much bolder border) -->
+                    <rect x="5" y="9" width="48" height="34" rx="4" fill="none" stroke="#000" stroke-width="4" />
+                    <!-- Folded corner (main card, bolder) -->
+                    <polyline points="49,9 53,9 53,13" fill="none" stroke="#000" stroke-width="4" />
+                    <!-- Three horizontal lines (suggest text, bolder) -->
+                    <line x1="13" y1="19" x2="45" y2="19" stroke="#000" stroke-width="2.5" />
+                    <line x1="13" y1="25" x2="41" y2="25" stroke="#000" stroke-width="2.5" />
+                    <line x1="13" y1="31" x2="37" y2="31" stroke="#000" stroke-width="2.5" />
                 </svg>
-                <span class="font-bold text-lg">Alfabeyi Öğreniyorum</span>
+
+
+                <span class="font-bold text-lg">Flaşkart Oluşturucu</span>
             </div>
 
             <!-- Puzzles -->
@@ -97,7 +118,7 @@
     </main>
 
 
-    <button class="fixed bottom-[67px] cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
+    <button class="fixed bottom-12 cursor-pointer right-6 z-50 bg-yellow-300 hover:bg-yellow-400 rounded-full p-4 shadow-lg flex items-center justify-center transition"
             aria-label="Chat with AI">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" class="block"
              xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +128,7 @@
     </button>
 
     <div id="chatBox"
-         class="fixed right-6 bottom-32 w-96 max-w-[95vw] bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300 scale-0 opacity-0
+         class="fixed right-6 bottom-30 w-96 max-w-[95vw] bg-white rounded-2xl shadow-2xl z-50 flex flex-col transition-all duration-300 scale-0 opacity-0
                 sm:w-96 sm:max-w-[95vw] w-[60vw] max-w-[95vw] text-base"
          style="min-height: 480px; max-height: 480px;">
         <!-- Header -->

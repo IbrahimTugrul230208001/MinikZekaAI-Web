@@ -8,12 +8,14 @@ namespace MinikZekaAI_Web.Controllers
     public class PlatformController : Controller
     {
         private readonly IAIServices _aiService;
+        private readonly IUserService _userService;
 
-        public PlatformController(IAIServices AIService)
+        public PlatformController(IAIServices AIService, IUserService userService)
         {
             _aiService = AIService;
-
+            _userService = userService;
         }
+
         public IActionResult AnaSayfa()
         {
             return View();
@@ -24,7 +26,18 @@ namespace MinikZekaAI_Web.Controllers
         }
         public IActionResult Hikayeler()
         {
-                       return View();
+            return View();
+        }
+
+        public IActionResult Sınavlar()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult SınavOlustur(ExamObject examObject)
+        {
+            examObject.StudentGrade = _userService.StudentGrade;
+            return View(examObject);
         }
         public async Task<IActionResult> Sohbet([FromBody] ChatRequest chatRequest, CancellationToken cancellationToken)
         {
