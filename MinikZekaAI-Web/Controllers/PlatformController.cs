@@ -32,6 +32,10 @@ namespace MinikZekaAI_Web.Controllers
         {
             return View();
         }
+        public IActionResult Flaskartlar()
+        {
+             return View();
+        }
         public IActionResult Sinavlar()
         {
             ViewData["StudentGrade"] = _userService.StudentGrade;

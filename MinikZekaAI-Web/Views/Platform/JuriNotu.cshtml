@@ -38,31 +38,40 @@
             </div>
 
             <div class="flex gap-10">
-                <a href="/Platform/AnaSayfa" class="flex active-underline justify-between items-center justify-center gap-1 text-white font-bold">
+                <a href="/Platform/AnaSayfa" class="flex justify-between items-center justify-center gap-1 text-white font-bold">
                     <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path d="M3 9.5L12 4l9 5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" />
                         <path d="M9 22V12h6v10" />
                     </svg>
                     <span>Anasayfa</span>
                 </a>
+                <a href="/Platform/JuriNotu"
+                   class="flex items-center bg-yellow-100 hover:bg-yellow-300 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2 border border-yellow-300 shadow-sm">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a2 2 0 012-2h10a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V4zm2 0v12h10V4H5zm2 3h6v2H7V7zm0 4h4v2H7v-2z" />
+                    </svg>
+                    Jüri Notu
+                </a>
+
                 <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
                     <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" />
                     </svg>
                     Aile Kontrolü
                 </a>
+
             </div>
         </div>
     </nav>
 
     <!-- Jury Note Section -->
     <div id="jury-note"
-         class="max-w-2xl mx-auto mt-12 mb-8 bg-white/90 rounded-xl shadow-lg p-6 border border-yellow-200">
+         class="max-w-4xl mx-auto mt-6 mb-8 bg-white/90 rounded-xl shadow-lg p-6 border border-yellow-200">
         <div id="jury-note-typewriter"
              class="text-gray-800 text-base font-mono leading-relaxed min-h-[200px]"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@2.18.0/dist/core.js"></script>
-
+    <script src="/js/juri_notu.js"></script>
 </body>
 </html>
