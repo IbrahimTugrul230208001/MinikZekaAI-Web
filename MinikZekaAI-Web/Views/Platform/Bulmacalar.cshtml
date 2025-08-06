@@ -1,5 +1,114 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+@using MinikZekaAI_Web.Models
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/global.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="~/css/output.css" rel="stylesheet" />
+</head>
+<body class="relative overflow-hidden bg-yellow-50">
+    <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_#a5f3fc_30%,_transparent_70%),radial-gradient(ellipse_at_bottom_right,_#fed7aa_30%,_transparent_70%)]"></div>
+    <nav class="sticky top-0 z-70 bg-gray-900 py-2 text-white backdrop-blur-md shadow-xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between h-[64px] px-4">
+            <div class="hidden md:flex justify-between items-center space-x-5">
+                <img src="/img/MinikZekaAI-Clean.png" alt="Logo" class="h-[72px] rounded-full">
+                <span class="text-white text-2xl font-extrabold" style="font-family: 'Baloo 2', cursive;">MinikZekaAI</span>
+            </div>
+            <div class="flex md:hidden w-full justify-center items-center space-x-2">
+                <img src="/img/MinikZekaAI-Clean.png" alt="Logo" class="h-10 rounded-full">
+                <span class="text-white text-xl font-extrabold" style="font-family: 'Baloo 2', cursive;">MinikZekaAI</span>
+            </div>
+            <div class="flex gap-10">
+                <a href="/Platform/AnaSayfa" class="flex active-underline justify-between items-center justify-center gap-1 text-white font-bold">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9.5L12 4l9 5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" /><path d="M9 22V12h6v10" /></svg>
+                    <span>Anasayfa</span>
+                </a>
+                <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
+                    <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" /></svg>
+                    Aile Kontrolü
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="flex flex-col items-center gap-10 py-10 px-5 pb-24">
+        <div class="flex gap-4">
+            <button onclick="generatePuzzle(6)" class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg transition">6x6 Kelime Bulmaca</button>
+            <button onclick="generatePuzzle(7)" class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg transition">7x7 Kelime Bulmaca</button>
+        </div>
+        <div id="puzzle-container" class="hidden flex flex-col items-center gap-4">
+            <table id="puzzle-grid" class="border-collapse"></table>
+            <div id="puzzle-words" class="text-gray-700"></div>
+        </div>
+        <hr class="w-full border-gray-300" />
+        <div id="idiom-section" class="flex flex-col items-center gap-4 w-full max-w-md">
+            <button onclick="generateIdiom()" class="bg-yellow-300 hover:bg-yellow-400 text-black font-semibold px-4 py-2 rounded-lg transition">Atasözü Sorusu Oluştur</button>
+            <div id="idiom-question" class="font-bold text-gray-800"></div>
+            <div id="idiom-options" class="flex flex-col gap-2 w-full"></div>
+        </div>
+    </main>
+    <script src="/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        var hubConnection = new signalR.HubConnectionBuilder().withUrl("/ai-hub").build();
+        hubConnection.start();
+        let currentMode = null;
+        hubConnection.on("ReceiveMessage", raw => {
+            const jsonStr = raw.trim().replace(/^```json|```$/g, "").trim();
+            let data; try { data = JSON.parse(jsonStr); } catch (e) { console.error("Bad JSON", e); return; }
+            if (currentMode === 'puzzle') {
+                const grid = document.getElementById("puzzle-grid");
+                grid.innerHTML = "";
+                data.grid.forEach(row => {
+                    const tr = document.createElement("tr");
+                    row.split('').forEach(ch => {
+                        const td = document.createElement("td");
+                        td.textContent = ch;
+                        td.className = "border w-8 h-8 text-center";
+                        tr.appendChild(td);
+                    });
+                    grid.appendChild(tr);
+                });
+                document.getElementById("puzzle-words").innerText = (data.words || []).join(', ');
+                document.getElementById("puzzle-container").classList.remove("hidden");
+            } else if (currentMode === 'idiom') {
+                document.getElementById("idiom-question").innerText = data.soru;
+                const optDiv = document.getElementById("idiom-options");
+                optDiv.innerHTML = "";
+                data.secenekler.forEach(o => {
+                    const btn = document.createElement("button");
+                    btn.textContent = o.deger;
+                    btn.className = "answer-btn w-full px-4 py-2 border rounded-lg bg-sky-50 hover:bg-sky-500 hover:text-white";
+                    btn.dataset.correct = o.secenek === data.dogru_cevap;
+                    btn.onclick = function() {
+                        const isCorrect = this.dataset.correct === "true";
+                        this.classList.remove('bg-sky-50','hover:bg-sky-500','hover:text-white');
+                        this.classList.add(isCorrect ? 'bg-green-500' : 'bg-red-500', 'text-white');
+                    };
+                    optDiv.appendChild(btn);
+                });
+            }
+        });
+        function generatePuzzle(size) {
+            if (!hubConnection.connectionId) return;
+            currentMode = 'puzzle';
+            const prompt = `${size}x${size} boyutunda bir kelime bulmacası hazırla. Sadece geçerli JSON dön:\n{\n"grid":["<satir1>","<satir2>",...],\n"words":["kelime1","kelime2"]\n}`;
+            fetch("/Platform/Sohbet", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt: prompt, connectionId: hubConnection.connectionId })
+            });
+        }
+        function generateIdiom() {
+            if (!hubConnection.connectionId) return;
+            currentMode = 'idiom';
+            const prompt = `Bir Türk atasözü seç ve bir kelimesini boş bırak. Boşluk için 3 seçenek (A,B,C) sun ve doğru seçeneği belirt. Sadece geçerli JSON dön:\n{\n"soru":"<cümle>",\n"secenekler":[{"secenek":"A","deger":"<A>"},{"secenek":"B","deger":"<B>"},{"secenek":"C","deger":"<C>"}],\n"dogru_cevap":"<DOGRU>"\n}`;
+            fetch("/Platform/Sohbet", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt: prompt, connectionId: hubConnection.connectionId })
+            });
+        }
+    </script>
+</body>
+</html>
