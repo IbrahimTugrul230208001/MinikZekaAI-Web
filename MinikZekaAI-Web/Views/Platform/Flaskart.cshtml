@@ -1,0 +1,126 @@
+@using MinikZekaAI_Web.Models
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="~/css/global.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="~/css/output.css" rel="stylesheet" />
+</head>
+<body class="relative overflow-hidden bg-yellow-50">
+    <div class="absolute inset-0 z-0 pointer-events-none bg-[radial-gradient(ellipse_at_top_left,_#a5f3fc_30%,_transparent_70%),radial-gradient(ellipse_at_bottom_right,_#fed7aa_30%,_transparent_70%)]"></div>
+    <nav class="sticky top-0 z-70 bg-gray-900 py-2 text-white backdrop-blur-md shadow-xl">
+        <div class="max-w-7xl mx-auto flex items-center justify-between h-[64px] px-4">
+            <div class="hidden md:flex justify-between items-center space-x-5">
+                <img src="/img/MinikZekaAI-Clean.png" alt="Logo" class="h-[72px] rounded-full">
+                <span class="text-white text-2xl font-extrabold" style="font-family: 'Baloo 2', cursive;">MinikZekaAI</span>
+            </div>
+            <div class="flex md:hidden w-full justify-center items-center space-x-2">
+                <img src="/img/MinikZekaAI-Clean.png" alt="Logo" class="h-10 rounded-full">
+                <span class="text-white text-xl font-extrabold" style="font-family: 'Baloo 2', cursive;">MinikZekaAI</span>
+            </div>
+            <div class="flex gap-10">
+                <a href="/Platform/AnaSayfa" class="flex active-underline justify-between items-center justify-center gap-1 text-white font-bold">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9.5L12 4l9 5.5V20a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9.5z" /><path d="M9 22V12h6v10" /></svg>
+                    <span>Anasayfa</span>
+                </a>
+                <a href="/Platform/AileKontrolu" class="flex justify-between items-center bg-yellow-300 hover:bg-yellow-400 text-gray-900 rounded-lg px-4 py-2 font-semibold transition gap-2">
+                    <svg height="20" width="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7 11a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9zm10.5 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0 1a4.5 4.5 0 0 1 4.5 4.5v.5h-9v-.5a4.5 4.5 0 0 1 4.5-4.5zM7 12a5 5 0 0 1 5 5v4H2v-4a5 5 0 0 1 5-5z" /></svg>
+                    Aile Kontrolü
+                </a>
+            </div>
+        </div>
+    </nav>
+    <main class="flex flex-col flex-1 min-h-[calc(100vh-64px-64px)] py-10 px-5 pb-24">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full flex-1 h-full mx-auto items-stretch">
+            <div data-lesson="Türkçe" class="lesson-card transition-transform hover:scale-105 cursor-pointer bg-sky-300 hover:bg-sky-400 active:bg-sky-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                <svg class="h-20 w-20" fill="#000000" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M829.44 911.36c45.245 0 81.92-36.675 81.92-81.92V194.56c0-45.245-36.675-81.92-81.92-81.92H194.56c-45.245 0-81.92 36.675-81.92 81.92v634.88c0 45.245 36.675 81.92 81.92 81.92h634.88zm0 40.96H194.56c-67.866 0-122.88-55.014-122.88-122.88V194.56c0-67.866 55.014-122.88 122.88-122.88h634.88c67.866 0 122.88 55.014 122.88 122.88v634.88c0 67.866-55.014 122.88-122.88 122.88z"></path><path d="M322.684 797.914L528.15 228.201c3.837-10.64-1.677-22.376-12.317-26.213s-22.376 1.677-26.213 12.317L284.154 784.018c-3.837 10.64 1.677 22.376 12.317 26.213s22.376-1.677 26.213-12.317z"></path><path d="M739.848 784.018L534.382 214.305c-3.837-10.64-15.573-16.155-26.213-12.317s-16.155 15.573-12.317 26.213l205.466 569.713c3.837 10.64 15.573 16.155 26.213 12.317s16.155-15.573 12.317-26.213z"></path><path d="M375.165 612.512h274.36c11.311 0 20.48-9.169 20.48-20.48s-9.169-20.48-20.48-20.48h-274.36c-11.311 0-20.48 9.169-20.48 20.48s9.169 20.48 20.48 20.48z"></path></svg>
+                <span class="font-bold text-lg">Türkçe</span>
+            </div>
+            <div data-lesson="Hayat Bilgisi" class="lesson-card transition-transform hover:scale-105 cursor-pointer bg-sky-300 hover:bg-sky-400 active:bg-sky-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                <svg class="h-20 w-20" fill="#000000" height="200" width="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370.667 370.667"><path d="M118.911,132.971c20.765,0,37.658-16.894,37.658-37.659c0-20.766-16.893-37.661-37.658-37.661 c-20.768,0-37.664,16.895-37.664,37.661C81.248,116.077,98.144,132.971,118.911,132.971z"/><path d="M242.443,132.971c20.766,0,37.66-16.894,37.66-37.659 c0-20.766-16.894-37.661-37.66-37.661s-37.66,16.895-37.66,37.661C204.783,116.077,221.677,132.971,242.443,132.971z"/><path d="M174.754,215.35l13.739-31.828c6.528-15.117,18.277-35.213,44.838-35.213h18.227 c26.562,0,38.31,20.097,44.835,35.213l13.74,31.828c1.97,4.563-0.132,9.86-4.695,11.83c-4.565,1.971-9.86-0.132-11.83-4.695 l-13.74-31.828c-7.466-17.293-15.668-24.347-28.31-24.347h-18.227c-12.642,0-20.845,7.054-28.312,24.348l-13.738,31.827 c-1.468,3.401-4.784,5.436-8.268,5.436c-1.19,0-2.4-0.238-3.563-0.739C174.887,225.21,172.784,219.913,174.754,215.35z"/><path d="M118.911,75.651 c10.839,0,19.658,8.82,19.658,19.661c0,10.84-8.818,19.659-19.658,19.659c-10.842,0-19.664-8.819-19.664-19.659 C99.248,84.471,108.069,75.651,118.911,75.651z"/></svg>
+                <span class="font-bold text-lg">Hayat Bilgisi</span>
+            </div>
+            <div data-lesson="Matematik" class="lesson-card transition-transform hover:scale-105 cursor-pointer bg-sky-300 hover:bg-sky-400 active:bg-sky-500 shadow-lg hover:shadow-xl transition duration-150 rounded-xl p-6 flex flex-col items-center justify-center h-full">
+                <svg class="h-20 w-20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.4199 5.63965H21.6999" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.4" d="M2.29883 5.64014H9.57883" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.4" d="M14.4199 15.3301H21.6999" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/><path opacity="0.4" d="M14.4199 21.3896H21.6999" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/><path d="M18.0898 9.27V2" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/><path d="M2.29883 22L9.57883 14.73" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/><path d="M9.57883 22L2.29883 14.73" stroke="#292D32" stroke-width="1.5" stroke-linecap="round"/></svg>
+                <span class="font-bold text-lg">Matematik</span>
+            </div>
+        </div>
+    </main>
+    <div id="flashcard-criteria" class="min-h-[calc(100vh-56px)] flex items-center justify-center pb-20 hidden">
+        <div class="max-w-md w-full bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Flashkart Oluşturma</h2>
+            <h3 class="text-gray-700 font-semibold text-xl">Konu</h3>
+            <select id="flash-concept" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300"></select>
+            <h3 class="text-gray-700 font-semibold text-xl">Zorluk</h3>
+            <select id="flash-difficulty" class="border rounded-lg p-2 focus:ring-2 focus:ring-yellow-300 mt-2">
+                <option>Zor</option>
+                <option>Orta</option>
+                <option>Kolay</option>
+            </select>
+            <button onclick="generateFlashcard()" class="flex justify-center items-center bg-yellow-300 hover:bg-yellow-400 cursor-pointer text-gray-900 rounded-lg px-4 py-2 font-semibold transition">Oluştur</button>
+        </div>
+    </div>
+    <div id="flashcard-container" class="max-w-xl mx-auto mt-10 bg-white rounded-2xl shadow-xl p-8 flex flex-col gap-6 hidden">
+        <div id="flash-question" class="text-lg font-bold text-gray-800 mb-2"></div>
+        <div id="flash-answer" class="text-gray-700 hidden"></div>
+        <button id="show-answer" class="w-full bg-yellow-300 hover:bg-yellow-400 text-black font-semibold py-2 rounded-xl shadow transition">Cevabı Göster</button>
+        <button id="regenerate" class="mt-2 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-xl shadow transition">Yeniden Oluştur</button>
+    </div>
+    <script src="/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+        const lessonConcepts = {
+            "Matematik": ["Sayıları Tanıma ve Yazma","Sayıları Sıralama","Toplama İşlemi (Basit)","Çıkarma İşlemi (Basit)","Geometrik Şekiller (Kare, Daire, Üçgen, Dikdörtgen)","Ritmik Sayma","Çarpma İşlemine Giriş","Uzunluk Ölçme","Para Birimleri","Saat Okuma (Tam ve Yarım Saatler)","Doğal Sayılar ve Bölükler","Toplama İşlemi ve Problemleri","Çıkarma İşlemi ve Problemleri","Çarpma İşlemi ve Problemleri","Bölme İşlemi ve Problemleri","Kesirler","Zamanı Ölçme (Saat, Takvim)","Ağırlıkları Ölçme","Sıvıları Ölçme","Paralarımız","Geometrik Cisimler ve Şekiller","Veri Toplama ve Değerlendirme","Bölme İşleminde Kalanlı Sonuçlar","Kesirlerle İşlemler","Alan ve Çevre Ölçme","Simetri","Uzunluk Ölçü Birimleri Dönüşümü","Zaman Problemleri","Veri Analizi"],
+            "Türkçe": ["Sesleri Tanıma ve Yazma","Kısa Cümle Kurma","Dinleme Kuralları","Metin Okuma ve Anlama","Kelime Anlamı","Basit Paragraf Kurma","Noktalama İşaretlerine Giriş","Okuduğunu Anlama","Kelime ve Kavram Bilgisi","Cümle Bilgisi","Paragraf Anlama ve Oluşturma","Yazım Kuralları","Noktalama İşaretleri","Anlatım Türleri","Söz Varlığı (Deyim, Atasözü)","Dinleme ve Konuşma Becerileri","Metin Türleri (Hikaye, Masal, Şiir, Bilgilendirici Metin)","Görsel Okuma ve Anlama","Ana Fikir Bulma","Olay, Zaman, Mekan ve Kişi","Paragrafta Akış ve Bütünlük","Yazılı Anlatım Türleri (Mektup, Dilekçe)","Sebep-Sonuç ve Amaç Sonuç Cümleleri"],
+            "Hayat Bilgisi": ["Kendimi Tanıyorum","Ailem","Okulumu Tanıyorum","Günlük Yaşam Kuralları","Arkadaşlık ve İletişim","Güvenli Davranışlar","Doğayı Koruma","Sağlık ve Temizlik","Birey ve Toplum","Aile ve Ev Yaşamı","Okul Hayatı","Güvenli Hayat","Doğa ve Çevre Bilinci","Sağlıklı Yaşam ve Beslenme","Duygularımız ve Sosyal İlişkiler","Ülkemizi Tanıyalım","Tasarruf ve Ekonomi","Zamanı Doğru Kullanma","Haklar ve Sorumluluklar","Çevremizdeki Meslekler","Yardımlaşma ve Dayanışma","Afet Bilinci ve Güvenlik","Trafik Kuralları","Doğal Kaynaklar ve Korunması","Projeler ve Girişimcilik"]
+        };
+        function updateConcepts(lesson){
+            const select=document.getElementById("flash-concept");
+            select.innerHTML="";
+            (lessonConcepts[lesson]||["Konu bulunamadı"]).forEach(c=>{
+                const opt=document.createElement("option");
+                opt.textContent=c;
+                select.appendChild(opt);
+            });
+        }
+        document.querySelectorAll('.lesson-card').forEach(card=>{
+            card.addEventListener('click',function(){
+                const lesson=this.getAttribute('data-lesson');
+                updateConcepts(lesson);
+                document.getElementById('flashcard-criteria').classList.remove('hidden');
+                document.querySelector('main').style.display="none";
+            });
+        });
+        var hubConnection=new signalR.HubConnectionBuilder().withUrl("/ai-hub").build();
+        hubConnection.start();
+        hubConnection.on("ReceiveMessage",raw=>{
+            const jsonStr=raw.trim().replace(/^```json|```$/g,"").trim();
+            let data;try{data=JSON.parse(jsonStr);}catch(e){console.error("Bad JSON",e);return;}
+            document.getElementById("flashcard-criteria").classList.add("hidden");
+            document.getElementById("flashcard-container").classList.remove("hidden");
+            document.getElementById("flash-question").innerText=`Soru: ${data.soru}`;
+            const ansEl=document.getElementById("flash-answer");
+            ansEl.innerText=`Cevap: ${data.cevap}`;
+            ansEl.classList.add("hidden");
+        });
+        function generateFlashcard(){
+            if(!hubConnection.connectionId){console.error("SignalR Connection ID is not available.");return;}
+            const concept=document.getElementById("flash-concept").value;
+            const difficulty=document.getElementById("flash-difficulty").value;
+            let prompt=`${concept} konusunda ${difficulty} seviyesinde bir flash kart için soru ve kısa cevabını oluştur. Sadece geçerli JSON dön:\n{\n"soru":"<SORU>",\n"cevap":"<CEVAP>"\n}`;
+            fetch("/Platform/Sohbet",{
+                method:"POST",
+                headers:{"Content-Type":"application/json"},
+                body:JSON.stringify({prompt:prompt,connectionId:hubConnection.connectionId})
+            });
+        }
+        document.getElementById("show-answer").onclick=()=>{
+            document.getElementById("flash-answer").classList.remove("hidden");
+        };
+        document.getElementById("regenerate").onclick=()=>{
+            generateFlashcard();
+        };
+    </script>
+</body>
+</html>
